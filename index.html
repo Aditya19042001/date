@@ -86,11 +86,19 @@
     }
     .p1-text p { color: #c0b8b0; font-size: 1rem; font-weight: 300; }
 
+    
     .btn-row {
-      display: flex; gap: 1rem;
-      justify-content: center; align-items: center;
-      position: relative; min-height: 56px;
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      max-width: 340px;
+      margin: 0 auto;
+      position: relative;
+      min-height: 80px;
     }
+    
     .btn-yes {
       background: #f7f7f5; color: #0a0a0a;
       border: none; padding: 0.85rem 2.8rem;
@@ -99,16 +107,23 @@
       transition: transform 0.2s, background 0.2s;
     }
     .btn-yes:hover { transform: scale(1.06); background: #e0d8d0; }
+    
     .btn-no {
       background: transparent;
       color: #e05555;
       border: 1.5px solid #553030;
-      padding: 0.85rem 2rem; border-radius: 50px;
+      padding: 0.85rem 2rem;
+      border-radius: 50px;
       font-family: 'DM Sans', sans-serif;
-      font-size: 1rem; font-weight: 500; cursor: default;
-      position: absolute; white-space: nowrap;
-      transition: transform 0.3s ease; user-select: none;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: transform 0.3s ease;
+      user-select: none;
+      position: relative;
     }
+    
 
     /* ========== PAGE 2 ========== */
     #page2 { background: #0a0a0a; gap: 1.5rem; }
@@ -213,27 +228,101 @@
         font-size: 2rem;
       }
 
-      .btn-row {
-        width: 100%;
-        max-width: 360px;
-        justify-content: space-between;
-        padding: 0 0.5rem;
-      }
+      
+    .btn-row {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      max-width: 340px;
+      margin: 0 auto;
+      position: relative;
+      min-height: 80px;
+    }
+    
 
       .btn-yes,
-      .btn-no {
-        position: relative;
-      }
+      
+    .btn-no {
+      background: transparent;
+      color: #e05555;
+      border: 1.5px solid #553030;
+      padding: 0.85rem 2rem;
+      border-radius: 50px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: transform 0.3s ease;
+      user-select: none;
+      position: relative;
+    }
+    
 
       .btn-yes {
         padding: 0.85rem 2.2rem;
       }
 
-      .btn-no {
-        right: auto;
-        left: auto;
-      }
+      
+    .btn-no {
+      background: transparent;
+      color: #e05555;
+      border: 1.5px solid #553030;
+      padding: 0.85rem 2rem;
+      border-radius: 50px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: transform 0.3s ease;
+      user-select: none;
+      position: relative;
     }
+    
+    }
+
+
+@media (max-width: 768px) {
+  .page {
+    padding: 1rem 1rem 2rem;
+    justify-content: flex-start;
+  }
+
+  .p1-photos {
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto 1.5rem;
+    gap: 6px;
+  }
+
+  .p1-text {
+    margin-bottom: 1.2rem;
+    text-align: center;
+  }
+
+  .p1-text h1 {
+    font-size: 2rem;
+    line-height: 1.15;
+  }
+
+  .p1-text p {
+    font-size: 0.95rem;
+  }
+
+  .btn-row {
+    margin-top: 0.5rem;
+  }
+
+  .btn-yes,
+  .btn-no {
+    flex: 1;
+    max-width: 150px;
+    text-align: center;
+  }
+}
 
 </style>
 </head>
@@ -285,7 +374,7 @@
     <h1>It's a date 🖤</h1>
     <div class="p3-dest-reveal" id="destReveal">—</div>
     <p class="p3-sub">Thank you for coming out with me 🍭</p>
-    <p class="p3-tag">every moment with you is my favourite one</p>
+    <p class="p3-tag">As the developer, I can confirm this app has emotions, not tracking features 😭<br>So send screenshot pls 👀</p>
   </div>
   <div class="p3-emojis">🍭 🦦 🍭 🦦 🍭</div>
 </div>
@@ -352,22 +441,25 @@
   }
 </script>
 
+
 <script>
-  const noBtn = document.querySelector('.btn-no');
+const noBtn = document.querySelector('.btn-no');
 
-  function moveNoButton() {
-    const x = Math.random() * 220 - 110;
-    const y = Math.random() * 120 - 60;
+function moveNoButton() {
+  const x = (Math.random() * 120) - 60;
+  const y = (Math.random() * 60) - 30;
 
-    noBtn.style.transform = `translate(${x}px, ${y}px)`;
-  }
+  noBtn.style.transform = `translate(${x}px, ${y}px)`;
+}
 
-  noBtn.addEventListener('mouseenter', moveNoButton);
-  noBtn.addEventListener('touchstart', function(e) {
-    e.preventDefault();
-    moveNoButton();
-  });
+noBtn.addEventListener('mouseenter', moveNoButton);
+
+noBtn.addEventListener('touchstart', function(e) {
+  e.preventDefault();
+  moveNoButton();
+});
 </script>
+
 
 </body>
 </html>
