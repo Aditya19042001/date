@@ -324,6 +324,61 @@
   }
 }
 
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  background: #0a0a0a;
+}
+
+body {
+  min-height: 100dvh;
+}
+
+.page {
+  min-height: 100dvh;
+}
+
+#page1 {
+  justify-content: flex-start;
+  padding-top: 1.5rem;
+}
+
+.p1-photos {
+  width: 100%;
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+.btn-row {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  max-width: 340px;
+  margin: 1rem auto 0;
+}
+
+.btn-yes,
+.btn-no {
+  position: relative !important;
+  transform: none !important;
+  flex: 1;
+  max-width: 150px;
+}
+
+@supports (-webkit-touch-callout: none) {
+  body {
+    min-height: -webkit-fill-available;
+  }
+
+  .page {
+    min-height: -webkit-fill-available;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -442,14 +497,19 @@
 </script>
 
 
+
 <script>
 const noBtn = document.querySelector('.btn-no');
 
 function moveNoButton() {
-  const x = (Math.random() * 120) - 60;
-  const y = (Math.random() * 60) - 30;
+  const x = Math.floor(Math.random() * 80) - 40;
+  const y = Math.floor(Math.random() * 40) - 20;
 
   noBtn.style.transform = `translate(${x}px, ${y}px)`;
+
+  setTimeout(() => {
+    noBtn.style.transform = 'translate(0px, 0px)';
+  }, 700);
 }
 
 noBtn.addEventListener('mouseenter', moveNoButton);
@@ -459,6 +519,7 @@ noBtn.addEventListener('touchstart', function(e) {
   moveNoButton();
 });
 </script>
+
 
 
 </body>
