@@ -103,16 +103,11 @@
       background: transparent;
       color: #e05555;
       border: 1.5px solid #553030;
-      padding: 0.85rem 2rem;
-      border-radius: 50px;
+      padding: 0.85rem 2rem; border-radius: 50px;
       font-family: 'DM Sans', sans-serif;
-      font-size: 1rem;
-      font-weight: 500;
-      cursor: pointer;
-      position: relative;
-      white-space: nowrap;
-      transition: transform 0.3s ease;
-      user-select: none;
+      font-size: 1rem; font-weight: 500; cursor: default;
+      position: absolute; white-space: nowrap;
+      transition: transform 0.3s ease; user-select: none;
     }
 
     /* ========== PAGE 2 ========== */
@@ -203,7 +198,44 @@
     .p3-sub { color: #c0b8b0; font-size: 1rem; font-weight: 300; margin: 0.5rem 0; }
     .p3-tag  { color: #6b6560; font-size: 0.9rem; font-weight: 300; letter-spacing: 0.3px; margin-top: 0.8rem; }
     .p3-emojis { font-size: 1.8rem; letter-spacing: 0.6rem; margin-top: 1.2rem; }
-  </style>
+  
+    @media (max-width: 768px) {
+      .page {
+        padding: 1rem 0.8rem 2rem;
+      }
+
+      .p1-photos {
+        max-width: 100%;
+        gap: 6px;
+      }
+
+      .p1-text h1 {
+        font-size: 2rem;
+      }
+
+      .btn-row {
+        width: 100%;
+        max-width: 360px;
+        justify-content: space-between;
+        padding: 0 0.5rem;
+      }
+
+      .btn-yes,
+      .btn-no {
+        position: relative;
+      }
+
+      .btn-yes {
+        padding: 0.85rem 2.2rem;
+      }
+
+      .btn-no {
+        right: auto;
+        left: auto;
+      }
+    }
+
+</style>
 </head>
 <body>
 
@@ -253,7 +285,7 @@
     <h1>It's a date 🖤</h1>
     <div class="p3-dest-reveal" id="destReveal">—</div>
     <p class="p3-sub">Thank you for coming out with me 🍭</p>
-    <p class="p3-tag">As the developer, I can confirm this app has emotions, not tracking features 😭, So send screenshot pls</p>
+    <p class="p3-tag">every moment with you is my favourite one</p>
   </div>
   <div class="p3-emojis">🍭 🦦 🍭 🦦 🍭</div>
 </div>
@@ -319,5 +351,23 @@
     document.getElementById('page3').classList.add('active');
   }
 </script>
+
+<script>
+  const noBtn = document.querySelector('.btn-no');
+
+  function moveNoButton() {
+    const x = Math.random() * 220 - 110;
+    const y = Math.random() * 120 - 60;
+
+    noBtn.style.transform = `translate(${x}px, ${y}px)`;
+  }
+
+  noBtn.addEventListener('mouseenter', moveNoButton);
+  noBtn.addEventListener('touchstart', function(e) {
+    e.preventDefault();
+    moveNoButton();
+  });
+</script>
+
 </body>
 </html>
